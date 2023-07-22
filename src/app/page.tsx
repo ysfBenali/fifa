@@ -3,6 +3,7 @@ import TRow from './components/TRow';
 import Thead from './components/Thead';
 import Pagination from './components/Pagination';
 import { fetchPlayers } from './services';
+import { Players } from '@prisma/client';
 
 export default async function Home({
   searchParams
@@ -19,14 +20,14 @@ export default async function Home({
   return (
     <>
       <header>{/* <h1>Players List</h1> */}</header>
-      <div className="flex justify-center flex-col">
+      <div className="flex justify-center items-center flex-col h-full">
         <div className="p-4 md:p-10 mx-auto max-w-7xl">
           <table className="border-collapse border">
             <thead>
               <Thead headColumns={headColumns} />
             </thead>
             <tbody>
-              {data?.map((player: Player) => (
+              {data?.map((player: Players) => (
                 <TRow key={player?.id?.toString()} player={player} />
               ))}
             </tbody>

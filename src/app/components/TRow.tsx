@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Player } from '../validation-schema';
+import { Players } from '@prisma/client';
 import { deletePlayer } from '../services';
 import Link from 'next/link';
 
 type Props = {
-  player: Player;
+  player: Players;
 };
 
 export default function TRow({ player }: Props) {
@@ -24,7 +24,7 @@ export default function TRow({ player }: Props) {
       <td className="px-5 py-5">
         {player?.firstname + '  ' + player?.lastname}
       </td>
-      <td className="px-5 py-5">{player?.salary}</td>
+      <td className="px-5 py-5">{player?.salary.toString()}</td>
       <td className="px-5 py-5">{player?.goal}</td>
       <td className="px-5 py-5">
         <Link href={`/edit?id=${player?.id}`}>
