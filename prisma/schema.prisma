@@ -7,6 +7,19 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Players {
+  id         Int      @id @default(autoincrement())
+  firstname  String
+  lastname   String
+  goal       Int
+  salary     BigInt
+  devise     String   @default("$")
+  pictureURl String   @default("https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
