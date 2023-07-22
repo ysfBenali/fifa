@@ -7,3 +7,10 @@ export const fetchPlayers = async (page: number) => {
 
     return res;
 }
+
+export const deletePlayer = async (id: number | undefined) => {
+    const res = await fetch("/api/players/delete?id=" + id, {
+        method: "DELETE"
+    });
+    return res;
+};
