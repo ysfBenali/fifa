@@ -1,9 +1,11 @@
-// import { Players } from "@prisma/client";
-
 import { Player } from "../validation-schema";
 
+const baseUrl = process.env.NODE_ENV === "production" ?
+    process.env.NEXT_PUBLIC_BASE_URL
+    : "http://localhost:3000";
+
 export const fetchPlayers = async (page: number) => {
-    const res = await fetch("http://localhost:3000/api/players?page=" + page,
+    const res = await fetch(`${baseUrl}/api/players?page=` + page,
         {
             method: "GET",
             cache: "no-cache",
