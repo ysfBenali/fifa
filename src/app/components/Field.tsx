@@ -20,9 +20,13 @@ export default function Field({
     <>
       <label className="text-sm text-black my-2" htmlFor="firstname">
         {label}
+        {name === 'firstname' || name === 'lastname' ? (
+          <span className="text-red-500 font-bold">&nbsp;*</span>
+        ) : null}
       </label>
       <input
         {...register(name)}
+        placeholder={label}
         type={type}
         name={name}
         defaultValue={defaultValue}

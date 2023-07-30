@@ -27,8 +27,8 @@ export const addPlayer = async (player: Player) => {
         method: "POST",
         body: JSON.stringify({
             ...player,
-            // devise: player.devise || "$",
-            // pictureURl: player.pictureURl,
+            salary: parseInt(player.salary.toString().split(' ')[0]),
+            devise: player.salary.toString().split(' ')[1]
         }),
     });
 
